@@ -16,6 +16,14 @@ A simple, elegant Streamlit chatbot application powered by the `moonshotai/kimi-
 - `app.py`: The main Streamlit application script containing UI logic and API calls.
 - `.streamlit/secrets.toml`: The configuration file containing your private API key (make sure this is in your `.gitignore`).
 
-## Usage Note
+## Usage & Configuration
 
-Ensure you have a valid NVIDIA API Key with access to the Kimi 2.5 model via the NVIDIA NGC integrate API. <https://build.nvidia.com/>
+Ensure you have a valid NVIDIA API Key with access to the Kimi 2.5 model via the NVIDIA NGC integrate API. You can get one at <https://build.nvidia.com/>.
+
+To configure your API key for Streamlit:
+1. Create a directory named `.streamlit` in the root of the project.
+2. Inside that directory, create a file named `secrets.toml`.
+3. Add your NVIDIA API key to `.streamlit/secrets.toml` like this:
+   ```toml
+   NVIDIA_API_KEY = "your-nvidia-api-key-here"
+   ```
