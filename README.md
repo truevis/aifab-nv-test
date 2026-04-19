@@ -2,7 +2,7 @@
 
 *Sponsored by [aifab.xyz](https://aifab.xyz)*
 
-A simple, elegant Streamlit chatbot application powered by the `moonshotai/kimi-k2.5` language model, accessed via the NVIDIA NIM API.
+A simple Streamlit chatbot application using the `moonshotai/kimi-k2.5` language model, accessed via the NVIDIA NIM API.
 
 ## Features
 
@@ -18,7 +18,7 @@ A simple, elegant Streamlit chatbot application powered by the `moonshotai/kimi-
 
 ## Usage & Configuration
 
-Ensure you have a valid NVIDIA API Key with access to the Kimi 2.5 model via the NVIDIA NGC integrate API. You can get one at <https://build.nvidia.com/>.
+Ensure you have a valid NVIDIA API Key via the NVIDIA NGC integrate API. You can get one at <https://build.nvidia.com/>.
 
 To configure your API key for Streamlit:
 1. Create a directory named `.streamlit` in the root of the project.
