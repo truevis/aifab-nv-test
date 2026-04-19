@@ -1,0 +1,37 @@
+.streamlit/secrets.toml
+.history
+
+# Python
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.env
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+*.log
+todo.md
+.cursorrules
+.agent/
+.cursor/
+
+qa*.md
+.agent/
+.cursor/
+.cursor/rules/
+.agent/rules/
+
