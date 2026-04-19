@@ -27,3 +27,5 @@ To configure your API key for Streamlit:
    ```toml
    NVIDIA_API_KEY = "your-nvidia-api-key-here"
    ```
+
+See [Streamlit documentation](https://docs.streamlit.io/) for further details on installation and usage.
