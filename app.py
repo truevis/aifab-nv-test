@@ -2,11 +2,11 @@ import streamlit as st
 from openai import OpenAI
 
 # Page configuration
-st.set_page_config(page_title="Kimi 2.5 Chat", page_icon="💬", layout="centered")
+st.set_page_config(page_title="AI Chat", page_icon="💬", layout="centered")
 
 # Header
-st.title("💬 Kimi 2.5 Chatbot")
-st.write("Powered by `moonshotai/kimi-k2.5` via NVIDIA NIM")
+st.title("💬 AI Chatbot")
+st.write("Choose an LLM model and chat via NVIDIA NIM")
 st.caption("Accessing via *https://integrate.api.nvidia.com/v1*")
 
 # Retrieve API Key from Streamlit Secrets
@@ -19,7 +19,7 @@ except KeyError:
 # Initialize OpenAI Client pointing to NVIDIA NIM endpoint
 client = OpenAI(
     base_url="https://integrate.api.nvidia.com/v1",
-    api_key=nvidia_api_key
+    api_key=nvidia_api_key,
 )
 
 # Initialize Session State for Chat History
@@ -28,6 +28,21 @@ if "messages" not in st.session_state:
 
 # Sidebar with clear chat button
 with st.sidebar:
+    model_options = [
+        "minimaxai/minimax-m3",
+        "qwen/qwen3.5-397b-a17b",
+        "moonshotai/kimi-k2.6",
+        "z-ai/glm-5.1",
+        "deepseek-ai/deepseek-v4-flash",
+        "deepseek-ai/deepseek-v4-pro",
+        "meta/llama-3.1-70b-instruct",
+    ]
+    selected_model = st.selectbox(
+        "LLM model",
+        model_options,
+        index=0,
+    )
+
     if st.button("🗑️ Clear Chat", use_container_width=True):
         st.session_state.messages = []
         st.rerun()
@@ -47,13 +62,13 @@ if prompt := st.chat_input("What's on your mind?"):
 
     # Prepare API messages payload
     api_messages = [{"role": m["role"], "content": m["content"]} for m in st.session_state.messages]
-    model_name = "moonshotai/kimi-k2.5"
+    model_name = selected_model
 
     # Spinner stays visible for the entire LLM call + streaming
     full_response = ""
     spinner_label = (
         f"Waiting for LLM response... "
-        f"Model: `{model_name}"
+        f"Model: `{model_name}`"
     )
     with st.spinner(spinner_label):
         try:
